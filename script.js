@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 let inpt = document.querySelector('.d-gray')
 let str = ''
 
@@ -80,4 +81,6 @@ document.querySelector('.btn-del').addEventListener('click',function(){
     inpt.value = ""
 })
 
+=======
+>>>>>>> d5fd425efed7878951f1f0d0279e3612124277e8
 
