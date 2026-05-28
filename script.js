@@ -73,7 +73,16 @@ document.querySelector('.btn-equal').addEventListener('click',function(){
     else{
         inpt.value = ""
         alert('death is upon us all')
-        document.querySelector('.l_gray').style.opacity = '0'
+        let calc = document.querySelector('.calc')
+        let crnt = 1
+        function anim() {
+            calc.style.transform = `scale(${crnt})`
+            if (crnt <= 0.25){
+                crnt -= 0.01
+                setTimeout(anim, 5)
+            }
+        anim()
+        }
     }
 
 })
