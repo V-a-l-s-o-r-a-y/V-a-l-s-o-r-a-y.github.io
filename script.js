@@ -73,19 +73,37 @@ document.querySelector('.btn-equal').addEventListener('click',function(){
     else{
         inpt.value = ""
         alert('death is upon us all')
-        let calc = document.querySelector('.calc')
-        let crnt = 1
-        function anim() {
-            calc.style.transform = `scale(${crnt})`
-            if (crnt <= 0.25){
-                crnt -= 0.01
-                setTimeout(anim, 5)
-            }
-        anim()
-        }
+        let calc = document.querySelector('.l-gray');
+
+            function animateScaleOut() {
+            calc.animate([
+                { transform: 'scale(1)', opacity: 1 },
+                { transform: 'scale(0)', opacity: 0.5 }
+    ], {
+        duration: 1000,       
+        easing: 'ease-out',
+        fill: 'forwards'  
+    });
+
+    }
+    document.querySelector('.btn-equal').addEventListener('click', animateScaleOut);    
     }
 
-})
+
+
+        // let calc = document.querySelector('.calc')
+        // let crnt = 1
+        // function anim() {
+        //     calc.style.transform = `scale(${crnt})`
+        //     if (crnt <= 0.25){
+        //         crnt -= 0.01
+        //         setTimeout(anim, 5)
+        //     }
+        // anim()
+        // }
+
+
+
 document.querySelector('.btn-del').addEventListener('click',function(){
     inpt.value = ""
 })
