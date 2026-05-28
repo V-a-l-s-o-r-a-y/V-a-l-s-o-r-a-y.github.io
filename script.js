@@ -73,6 +73,7 @@ document.querySelector('.btn-equal').addEventListener('click',function(){
     else{
         inpt.value = ""
         alert('death is upon us all')
+        document.querySelector('.l_gray').style.opacity = '0'
     }
 
 })
