@@ -1,11 +1,13 @@
 body {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    position: relative;
     background-image: url('calc_background.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overscroll-behavior-y: none;
 }
 .btn {
     background-color: #1E1E1E;
@@ -60,16 +62,22 @@ body {
     line-height: 110px;
 }
 .fleet {
-    width: 540px;
-    height: 250px;
+    /* width: 80vw; */
     /* background-color: rgb(9, 39, 2); */
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(9, 1fr);
-    gap: 10px;
+    display: none;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px;
+    /* margin: 10vw;
+    align-self: center; */
+    /* margin: 0 auto; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .ship {
     background-color: yellowgreen;
-    width: 55px;
-    height: 55px;
+    width: 6vw;
+    height: 6vw;
+    aspect-ratio: 1 / 1;
 }

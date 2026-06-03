@@ -88,6 +88,7 @@ document.querySelector('.btn-equal').addEventListener('click',function(){
 
     }
     animateScaleOut()
+    document.querySelector('.fleet').style.display = 'grid'
     }
 
 
@@ -112,9 +113,9 @@ let fleet = document.querySelector('.fleet');
 
 for (let i = 0; i < 48; i += 1) {
     let ship = document.createElement('div');
-    ship.classList.add('cell');
+    ship.classList.add('ship');
     ship.setAttribute('id', `${i}`);
     fleet.appendChild(ship);
 }
 
-let ship = document.querySelectorAll('.cell');
+let ship = document.querySelectorAll('.ship');
