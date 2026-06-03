@@ -73,12 +73,13 @@ document.querySelector('.btn-equal').addEventListener('click',function(){
     else{
         inpt.value = ""
         alert('death is upon us all')
-        let calc = document.querySelector('.l-gray');
+        let calc = document.querySelector('.calc');
 
             function animateScaleOut() {
             calc.animate([
-                { transform: 'scale(1)', opacity: 1 },
-                { transform: 'scale(0)', opacity: 0.5 }
+                { transform: 'scale(1) translateY(0px)'},
+                { transform: 'scale(0.175) translateY(4200px)'}
+
     ], {
         duration: 1000,       
         easing: 'ease-out',
@@ -86,7 +87,7 @@ document.querySelector('.btn-equal').addEventListener('click',function(){
     });
 
     }
-    document.querySelector('.btn-equal').addEventListener('click', animateScaleOut);    
+    animateScaleOut()
     }
 
 
@@ -103,7 +104,17 @@ document.querySelector('.btn-equal').addEventListener('click',function(){
         // }
 
 
-
+    })
 document.querySelector('.btn-del').addEventListener('click',function(){
     inpt.value = ""
 })
+let fleet = document.querySelector('.fleet');
+
+for (let i = 0; i < 48; i += 1) {
+    let ship = document.createElement('div');
+    ship.classList.add('cell');
+    ship.setAttribute('id', `${i}`);
+    fleet.appendChild(ship);
+}
+
+let ship = document.querySelectorAll('.cell');

@@ -1,4 +1,4 @@
-<<<<<<< HEADbody {
+body {
     width: 100vw;
     height: 100vh;
     background-image: url('calc_background.jpg');
@@ -58,4 +58,18 @@
     font-size: 65px;
     text-align: center;
     line-height: 110px;
+}
+.fleet {
+    width: 540px;
+    height: 250px;
+    /* background-color: rgb(9, 39, 2); */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    gap: 10px;
+}
+.ship {
+    background-color: yellowgreen;
+    width: 55px;
+    height: 55px;
 }
