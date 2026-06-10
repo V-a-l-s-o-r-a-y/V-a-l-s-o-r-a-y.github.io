@@ -1,6 +1,6 @@
 let inpt = document.querySelector('.d-gray')
 let str = ''
-
+let game = false
 
 document.querySelector('.btn-1').addEventListener('click',function(){
     inpt.value += '1'
@@ -72,6 +72,7 @@ document.querySelector('.btn-equal').addEventListener('click',function(){
     }
     else{
         inpt.value = ""
+        game = true
         alert('death is upon us all')
         let calc = document.querySelector('.calc');
 
@@ -119,3 +120,83 @@ for (let i = 0; i < 48; i += 1) {
 }
 
 let ship = document.querySelectorAll('.ship');
+
+let calc = document.querySelector('.calc')
+
+// document.addEventListener("keypress", function(){
+//     if (key === 'ArrowLeft' || key === 'a') {
+//         calc.style.left += '20'
+//     }
+
+//     if (key === 'ArrowRight' || key === 'd') {
+
+//     }
+
+//     if (key === ' ') {
+
+//     }
+// })
+// let calc = document.querySelector('.calc');
+let step = 20;
+
+let posX = 0;
+let posY = 0;
+
+function moveCalc(dx, dy) {
+    let newX = posX + dx;
+    let newY = posY + dy;
+    
+    const maxX = window.innerWidth - calc.offsetWidth;
+    const maxY = window.innerHeight - calc.offsetHeight;
+    
+    newX = Math.min(Math.max(newX, 0), maxX);
+    newY = Math.min(Math.max(newY, 0), maxY);
+    
+    if (newX !== posX || newY !== posY) {
+        posX = newX;
+        posY = newY;
+        calc.style.left = posX + 'px';
+        calc.style.top = posY + 'px';
+        calc.style.transform = 'none';
+    }
+}
+
+function initPosition() {
+    const rect = calc.getBoundingClientRect();
+    posX = rect.left;
+    posY = rect.top;
+    calc.style.position = 'absolute';
+    calc.style.left = posX + 'px';
+    calc.style.top = posY + 'px';
+    calc.style.transform = 'none';
+}
+window.addEventListener('load', initPosition);
+window.addEventListener('resize', () => {
+    moveCalc(0, 0);
+});
+if (game == true){
+    document.addEventListener('keydown', function(e) {
+        if (document.activeElement === inpt) {
+            return;
+        }
+        
+        switch(e.key) {
+            case 'ArrowLeft':
+                moveCalc(-step, 0);
+                e.preventDefault();
+                break;
+            case 'ArrowRight':
+                moveCalc(step, 0);
+                e.preventDefault();
+                break;
+            case 'ArrowUp':
+                moveCalc(0, -step);
+                e.preventDefault();
+                break;
+            case 'ArrowDown':
+                moveCalc(0, step);
+                e.preventDefault();
+                break;
+        }
+    });
+}
