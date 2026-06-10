@@ -51,7 +51,7 @@ document.querySelector('.btn-div').addEventListener('click',function(){
 
 document.querySelector('.btn-equal').addEventListener('click',function(){
     inp = inpt.value
-    if (!inp.includes('13*666/0')){
+    if (!inp.includes('0')){
         if (inp.includes('+')){
             inp = inp.split('+')
             inpt.value = +inp[0] + +inp[1]
